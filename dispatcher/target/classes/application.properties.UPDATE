@@ -1,0 +1,9 @@
+server.port=8084
+telegram.bot.username=ENTER_TELEGTAM_BOT_NAME
+telegram.bot.token=ENTER_TELEGTAM_BOT_TOKERN
+
+
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=ENTER_RABBITMO_USERNAME
+spring.rabbitmq.password=ENTER_RABBITMO_PASSWORD

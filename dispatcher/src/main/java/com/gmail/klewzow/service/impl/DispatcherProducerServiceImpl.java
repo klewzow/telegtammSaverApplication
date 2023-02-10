@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 @Log4j
 @Service
-@EnableAutoConfiguration
 public class DispatcherProducerServiceImpl implements DispatcherProducerService {
 
     private RabbitTemplate rabbitTemplate;
