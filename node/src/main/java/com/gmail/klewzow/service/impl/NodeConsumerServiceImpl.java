@@ -27,7 +27,6 @@ public class NodeConsumerServiceImpl implements NodeConsumerService {
         sendMessage.setChatId(update.getMessage().getChatId());
         sendMessage.setText("Text message");
         nodeProducerService.produce(sendMessage);
-
     }
 
     @Override
@@ -38,7 +37,6 @@ public class NodeConsumerServiceImpl implements NodeConsumerService {
         sendMessage.setChatId(update.getMessage().getChatId());
         sendMessage.setText("Photo message");
         nodeProducerService.produce(sendMessage);
-
     }
 
     @Override
