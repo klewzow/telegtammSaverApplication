@@ -11,6 +11,8 @@
   <modules>
     <module>dispatcher</module>
     <module>common-broker</module>
+    <module>node</module>
+    <module>common-jpa</module>
   </modules>
 
   <name>Bot</name>

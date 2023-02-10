@@ -4,11 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Dispatcher {
-
+public class NodeMicroservice {
     public static void main( String[] args )
     {
-        SpringApplication.run(Dispatcher.class);
+        SpringApplication.run(NodeMicroservice.class);
     }
-
 }
