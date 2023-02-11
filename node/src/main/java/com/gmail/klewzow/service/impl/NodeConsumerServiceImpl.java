@@ -1,5 +1,6 @@
 package com.gmail.klewzow.service.impl;
 
+import com.gmail.klewzow.DAO.ApplicationUserRepository;
 import com.gmail.klewzow.service.NodeConsumerService;
 import com.gmail.klewzow.service.NodeProducerService;
 import lombok.extern.log4j.Log4j;
@@ -14,9 +15,11 @@ import static com.gmail.klewzow.StatusMessageQueue.*;
 @Service
 public class NodeConsumerServiceImpl implements NodeConsumerService {
     private final NodeProducerService nodeProducerService;
+    private final ApplicationUserRepository applicationUserRepository;
 
-    public NodeConsumerServiceImpl(NodeProducerService nodeProducerService) {
+    public NodeConsumerServiceImpl(NodeProducerService nodeProducerService, ApplicationUserRepository applicationUserRepository) {
         this.nodeProducerService = nodeProducerService;
+        this.applicationUserRepository = applicationUserRepository;
     }
 
     @Override

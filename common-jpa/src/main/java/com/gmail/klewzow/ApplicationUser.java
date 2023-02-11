@@ -1,11 +1,21 @@
 package com.gmail.klewzow;
 
 
+import lombok.*;
+import lombok.extern.log4j.Log4j;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(exclude = "id")
+@ToString
+@Log4j
+@Entity
 public class ApplicationUser {
 
     @Id
