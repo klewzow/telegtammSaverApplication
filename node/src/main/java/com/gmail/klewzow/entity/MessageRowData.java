@@ -18,7 +18,6 @@ import javax.persistence.*;
 @TypeDefs({
         @TypeDef(name = "json", typeClass = JsonStringType.class),
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
-
 })
 @Log4j
 @Builder

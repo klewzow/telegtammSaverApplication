@@ -25,23 +25,23 @@ public class ApplicationUser {
     private Long id;
 
     @Column(name = "chat_id")
-    private Long telegramChatId;
+    private Long telegramUserId;
 
     @Column(name = "first_data")
     @CreationTimestamp
     private LocalDateTime firstLoginDate;
 
     @Column(name = "user_name")
-    private long username;
+    private String username;
 
     @Column(name = "first_name")
-    private long firstName;
+    private String firstName;
 
     @Column(name = "last_name")
-    private long lastName;
+    private String lastName;
 
     @Column(name = "e_mail")
-    private long eMail;
+    private String eMail;
 
     @Column(name = "status")
     @Enumerated(EnumType.ORDINAL)
@@ -49,4 +49,10 @@ public class ApplicationUser {
 
     @Column(name = "active")
     private boolean isActive;
+
+
+    public int showStatus(){
+        return this.status.ordinal();
+    }
+
 }
