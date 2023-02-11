@@ -1,6 +1,8 @@
 package com.gmail.klewzow.service.impl;
 
-import com.gmail.klewzow.DAO.ApplicationUserRepository;
+import com.gmail.klewzow.dao.ApplicationUserRepository;
+import com.gmail.klewzow.dao.MessageRowDataDAO;
+import com.gmail.klewzow.entity.MessageRowData;
 import com.gmail.klewzow.service.NodeConsumerService;
 import com.gmail.klewzow.service.NodeProducerService;
 import lombok.extern.log4j.Log4j;
@@ -16,10 +18,14 @@ import static com.gmail.klewzow.StatusMessageQueue.*;
 public class NodeConsumerServiceImpl implements NodeConsumerService {
     private final NodeProducerService nodeProducerService;
     private final ApplicationUserRepository applicationUserRepository;
+    private final MessageRowDataDAO messageRowDataDAO;
+    private  MessageRowData messageRowData;
 
-    public NodeConsumerServiceImpl(NodeProducerService nodeProducerService, ApplicationUserRepository applicationUserRepository) {
+    public NodeConsumerServiceImpl(NodeProducerService nodeProducerService, ApplicationUserRepository applicationUserRepository, MessageRowDataDAO messageRowDataDAO ) {
         this.nodeProducerService = nodeProducerService;
         this.applicationUserRepository = applicationUserRepository;
+        this.messageRowDataDAO = messageRowDataDAO;
+
     }
 
     @Override
@@ -29,9 +35,14 @@ public class NodeConsumerServiceImpl implements NodeConsumerService {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getMessage().getChatId());
         sendMessage.setText("Text message");
+        messageRowData = MessageRowData.builder()
+                .chatID(update.getMessage().getChatId())
+                .update(update)
+                .build();
+
+         messageRowDataDAO.save(messageRowData);
         nodeProducerService.produce(sendMessage);
     }
-
     @Override
     @RabbitListener(queues = PHOTO_MESSAGE)
     public void commonPhotoMessageUpdate(Update update) {

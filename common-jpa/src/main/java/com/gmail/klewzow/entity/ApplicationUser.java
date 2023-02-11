@@ -1,6 +1,7 @@
-package com.gmail.klewzow;
+package com.gmail.klewzow.entity;
 
 
+import com.gmail.klewzow.enums.UserStatus;
 import lombok.*;
 import lombok.extern.log4j.Log4j;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = "id")
+@Builder
 @ToString
 @Log4j
 @Entity
@@ -42,10 +44,9 @@ public class ApplicationUser {
     private long eMail;
 
     @Column(name = "status")
-//    @Enumerated(EnumType.ORDINAL)
-    private int status;
+    @Enumerated(EnumType.ORDINAL)
+    private UserStatus status;
 
     @Column(name = "active")
     private boolean isActive;
-
 }
